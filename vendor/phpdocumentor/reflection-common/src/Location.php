@@ -13,7 +13,7 @@
 namespace phpDocumentor\Reflection;
 
 /**
- * The location where an element occurs within a file.
+ * The locations where an element occurs within a file.
  */
 final class Location
 {
@@ -24,7 +24,7 @@ final class Location
     private $columnNumber = 0;
 
     /**
-     * Initializes the location for an element using its line number in the file and optionally the column number.
+     * Initializes the locations for an element using its line number in the file and optionally the column number.
      *
      * @param int $lineNumber
      * @param int $columnNumber
@@ -36,7 +36,7 @@ final class Location
     }
 
     /**
-     * Returns the line number that is covered by this location.
+     * Returns the line number that is covered by this locations.
      *
      * @return integer
      */
@@ -46,7 +46,7 @@ final class Location
     }
 
     /**
-     * Returns the column number (character position on a line) for this location object.
+     * Returns the column number (character position on a line) for this locations object.
      *
      * @return integer
      */

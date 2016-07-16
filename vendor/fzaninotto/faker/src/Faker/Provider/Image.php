@@ -46,7 +46,7 @@ class Image extends Base
     }
 
     /**
-     * Download a remote random image to disk and return its location
+     * Download a remote random image to disk and return its locations
      *
      * Requires curl, or allow_url_fopen to be on in php.ini.
      *

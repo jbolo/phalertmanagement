@@ -255,7 +255,7 @@ class Configuration
     }
 
     /**
-     * Set the shell's config directory location.
+     * Set the shell's config directory locations.
      *
      * @param string $dir
      */
@@ -275,7 +275,7 @@ class Configuration
     }
 
     /**
-     * Set the shell's data directory location.
+     * Set the shell's data directory locations.
      *
      * @param string $dir
      */
@@ -295,7 +295,7 @@ class Configuration
     }
 
     /**
-     * Set the shell's temporary directory location.
+     * Set the shell's temporary directory locations.
      *
      * @param string $dir
      */
@@ -305,7 +305,7 @@ class Configuration
     }
 
     /**
-     * Get the shell's temporary directory location.
+     * Get the shell's temporary directory locations.
      *
      * Defaults to  `/psysh` inside the system's temp dir unless explicitly
      * overridden.

@@ -1,3 +1,3 @@
 <div class="panel panel-default">
-    <div class="panel-footer">Todos los derechos Reservados &copy; {{ date('Y') }}</div>
+    <div class="panel-footer">All rights reserved &copy; {{ date('Y') }}</div>
 </div>

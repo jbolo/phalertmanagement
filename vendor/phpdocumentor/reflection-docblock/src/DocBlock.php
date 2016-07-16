@@ -29,7 +29,7 @@ final class DocBlock
     /** @var Types\Context Information about the context of this DocBlock. */
     private $context = null;
 
-    /** @var Location Information about the location of this DocBlock. */
+    /** @var Location Information about the locations of this DocBlock. */
     private $location = null;
 
     /** @var bool Is this DocBlock (the start of) a template? */
@@ -43,7 +43,7 @@ final class DocBlock
      * @param DocBlock\Description $description
      * @param DocBlock\Tag[] $tags
      * @param Types\Context $context The context in which the DocBlock occurs.
-     * @param Location $location The location within the file that this DocBlock occurs in.
+     * @param Location $location The locations within the file that this DocBlock occurs in.
      * @param bool $isTemplateStart
      * @param bool $isTemplateEnd
      */
@@ -102,7 +102,7 @@ final class DocBlock
     }
 
     /**
-     * Returns the current location.
+     * Returns the current locations.
      *
      * @return Location
      */

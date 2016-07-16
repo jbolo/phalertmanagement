@@ -61,7 +61,7 @@ class FileViewFinder implements ViewFinderInterface
     }
 
     /**
-     * Get the fully qualified location of the view.
+     * Get the fully qualified locations of the view.
      *
      * @param  string  $name
      * @return string
@@ -151,7 +151,7 @@ class FileViewFinder implements ViewFinderInterface
     }
 
     /**
-     * Add a location to the finder.
+     * Add a locations to the finder.
      *
      * @param  string  $location
      * @return void

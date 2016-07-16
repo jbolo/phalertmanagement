@@ -163,7 +163,7 @@ class Filesystem
     }
 
     /**
-     * Move a file to a new location.
+     * Move a file to a new locations.
      *
      * @param  string  $path
      * @param  string  $target
@@ -175,7 +175,7 @@ class Filesystem
     }
 
     /**
-     * Copy a file to a new location.
+     * Copy a file to a new locations.
      *
      * @param  string  $path
      * @param  string  $target
@@ -389,7 +389,7 @@ class Filesystem
     }
 
     /**
-     * Copy a directory from one location to another.
+     * Copy a directory from one locations to another.
      *
      * @param  string  $directory
      * @param  string  $destination
@@ -428,7 +428,7 @@ class Filesystem
             }
 
             // If the current items is just a regular file, we will just copy this to the new
-            // location and keep looping. If for some reason the copy fails we'll bail out
+            // locations and keep looping. If for some reason the copy fails we'll bail out
             // and return false, so the developer is aware that the copy process failed.
             else {
                 if (! $this->copy($item->getPathname(), $target)) {

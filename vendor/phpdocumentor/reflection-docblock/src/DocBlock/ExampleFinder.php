@@ -15,7 +15,7 @@ namespace phpDocumentor\Reflection;
 use phpDocumentor\Reflection\DocBlock\Tags\Example;
 
 /**
- * Class used to find an example file's location based on a given ExampleDescriptor.
+ * Class used to find an example file's locations based on a given ExampleDescriptor.
  */
 class ExampleFinder
 {

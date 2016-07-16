@@ -31,7 +31,7 @@ class AstAnalyzer extends ClosureAnalyzer
         // Make a second pass through the AST, but only through the closure's
         // nodes, to resolve any magic constants to literal values.
         $traverser = new NodeTraverser;
-        $traverser->addVisitor(new MagicConstantVisitor($data['location']));
+        $traverser->addVisitor(new MagicConstantVisitor($data['locations']));
         $traverser->addVisitor($thisDetector = new ThisDetectorVisitor);
         $data['ast'] = $traverser->traverse([$data['ast']])[0];
         $data['hasThis'] = $thisDetector->detected;
@@ -74,7 +74,7 @@ class AstAnalyzer extends ClosureAnalyzer
             // @codeCoverageIgnoreEnd
         }
 
-        $data['location'] = $locator->location;
+        $data['locations'] = $locator->location;
     }
 
     /**

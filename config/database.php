@@ -56,7 +56,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => 'phalert',
+            'database' => 'phmobile',
             'username' => 'root',
             'password' => 's3rv3r',
             'charset' => 'utf8',

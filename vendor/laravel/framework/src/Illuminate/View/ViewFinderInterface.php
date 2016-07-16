@@ -12,7 +12,7 @@ interface ViewFinderInterface
     const HINT_PATH_DELIMITER = '::';
 
     /**
-     * Get the fully qualified location of the view.
+     * Get the fully qualified locations of the view.
      *
      * @param  string  $view
      * @return string
@@ -20,7 +20,7 @@ interface ViewFinderInterface
     public function find($view);
 
     /**
-     * Add a location to the finder.
+     * Add a locations to the finder.
      *
      * @param  string  $location
      * @return void

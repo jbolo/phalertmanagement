@@ -8,14 +8,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" width="150" height="40"/></a>
+            <a class="navbar-brand" href="{{url('admin')}}"><img src="{{asset('images/logo.png')}}" width="150" height="40"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{route('admin.locales.index')}}">Locales <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ route('admin.eventos.index') }}">Eventos</a></li>
+                <li class="{{Request::route()->getName()}}"><a href="{{route('admin.locations.index')}}">Locations <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ route('admin.events.index') }}">Events</a></li>
+                <li><a href="{{ route('admin.neighbors.index') }}">Neighbors</a></li>
+                <li><a href="#">Reports</a></li>
                 <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">

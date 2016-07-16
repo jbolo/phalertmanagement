@@ -10,7 +10,7 @@ use PhpParser\NodeVisitorAbstract as NodeVisitor;
 
 /**
  * This is a visitor that extends the nikic/php-parser library and looks for a
- * closure node and its location.
+ * closure node and its locations.
  *
  * @internal
  */
@@ -51,7 +51,7 @@ final class ClosureLocatorVisitor extends NodeVisitor
 
     public function enterNode(AstNode $node)
     {
-        // Determine information about the closure's location
+        // Determine information about the closure's locations
         if (!$this->closureNode) {
             if ($node instanceof NamespaceNode) {
                 $namespace = ($node->name && is_array($node->name->parts))
@@ -85,7 +85,7 @@ final class ClosureLocatorVisitor extends NodeVisitor
 
     public function leaveNode(AstNode $node)
     {
-        // Determine information about the closure's location
+        // Determine information about the closure's locations
         if (!$this->closureNode) {
             if ($node instanceof NamespaceNode) {
                 $this->location['namespace'] = null;

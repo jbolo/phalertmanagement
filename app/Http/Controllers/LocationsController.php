@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 //use App\Http\Requests;
 //use App\User;
 //use Request;
-use App\Local;
+use App\Location;
 use Laracasts\Flash\Flash;
 
-class LocalesController extends Controller
+class LocationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +19,9 @@ class LocalesController extends Controller
      */
     public function index()
     {
-        $locales = Local::orderBy('id','ASC')->paginate(5);
+        $locations = Location::orderBy('id','ASC')->paginate(5);
 
-        return view('admin.locales.index')->with('locales',$locales);
+        return view('admin.locations.index')->with('locations',$locations);
     }
 
     /**
@@ -31,7 +31,7 @@ class LocalesController extends Controller
      */
     public function create()
     {
-        return view('admin.locales.create');
+        return view('admin.locations.create');
     }
 
     /**
@@ -42,11 +42,10 @@ class LocalesController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $local = new Local($request->all());
-        $local->save();
-        flash('Se ha registrado ' . $local->descripcion . ' de forma exitosa.','info');
-        return redirect()->route('admin.locales.index');
+        $location = new Location($request->all());
+        $location->save();
+        flash('Location  ' . $location->name . ' registred succefull.','info');
+        return redirect()->route('admin.locations.index');
     }
 
     /**
@@ -68,8 +67,8 @@ class LocalesController extends Controller
      */
     public function edit($id)
     {
-        $local=Local::find($id);
-        return view('admin.locales.edit')->with('local',$local);
+        $location=Location::find($id);
+        return view('admin.locations.edit')->with('location',$location);
     }
 
     /**
@@ -81,15 +80,16 @@ class LocalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $local = Local::find($id);
-        $local->descripcion = $request->input('descripcion');
-        $local->direccion = $request->input('direccion');
-        $local->posicion_gps = $request->input('posicion_gps');
+        $location = Location::find($id);
+        $location->name = $request->input('name');
+        $location->address = $request->input('address');
+        $location->longitude = $request->input('longitude');
+        $location->latitude = $request->input('latitude');
 
-        $local->save();
+        $location->save();
 
-        flash('El local ' . $local->descripcion . 'ha sido actualizado de forma exitosa.','info');
-        return redirect()->route('admin.locales.index');
+        flash('Location ' . $location->name . ' updated successful.','info');
+        return redirect()->route('admin.locations.index');
     }
 
     /**
@@ -100,10 +100,9 @@ class LocalesController extends Controller
      */
     public function destroy($id)
     {
-        $local= Local::find($id);
-        $local->delete();
-        //flash('El local '+ $local->id +' ha sido borrado de forma exitosa.','info');
-        flash('El local ' . $local->descripcion . 'ha sido borrado de forma exitosa.','info');
-        return redirect()->route('admin.locales.index');
+        $location= Location::find($id);
+        $location->delete();
+        flash('Location ' . $location->name . ' removed successful.','info');
+        return redirect()->route('admin.locations.index');
     }
 }

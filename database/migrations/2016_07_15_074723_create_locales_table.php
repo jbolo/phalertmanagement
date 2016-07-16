@@ -12,7 +12,7 @@ class CreateLocalesTable extends Migration
      */
     public function up()
     {
-        Schema::create('locales', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
             $table->text('descripcion');
             $table->string('direccion');
@@ -26,6 +26,6 @@ class CreateLocalesTable extends Migration
      */
     public function down()
     {
-        Schema::drop("locales");
+        Schema::drop("locations");
     }
 }

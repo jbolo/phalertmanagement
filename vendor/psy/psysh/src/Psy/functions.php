@@ -184,7 +184,7 @@ Usage:
 
 Options:
   --help     -h Display this help message.
-  --config   -c Use an alternate PsySH config file location.
+  --config   -c Use an alternate PsySH config file locations.
   --cwd         Use an alternate working directory.
   --version  -v Display the PsySH version.
   --color       Force colors in output.

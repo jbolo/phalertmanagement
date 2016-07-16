@@ -152,7 +152,7 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
     {
         /*
          * Because the cache file contains a catalogue including all of its fallback
-         * catalogues, we must take the set of fallback locales into consideration when
+         * catalogues, we must take the set of fallback locations into consideration when
          * loading a catalogue from the cache.
          */
         $translator = new Translator('a', null, $this->tmpDir);
@@ -168,7 +168,7 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
         $translator->setFallbackLocales(array());
         $this->assertEquals('bar', $translator->trans('bar'));
 
-        // Use a fresh translator with no fallback locales, result should be the same
+        // Use a fresh translator with no fallback locations, result should be the same
         $translator = new Translator('a', null, $this->tmpDir);
 
         $translator->addLoader('array', new ArrayLoader());
@@ -190,7 +190,7 @@ class TranslatorCacheTest extends \PHPUnit_Framework_TestCase
          */
 
         /*
-         * Create a translator that loads two catalogues for two different locales.
+         * Create a translator that loads two catalogues for two different locations.
          * The catalogues contain distinct sets of messages.
          */
         $translator = new Translator('a', null, $this->tmpDir);

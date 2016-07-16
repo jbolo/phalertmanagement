@@ -152,7 +152,7 @@ if (! function_exists('auth')) {
 
 if (! function_exists('back')) {
     /**
-     * Create a new redirect response to the previous location.
+     * Create a new redirect response to the previous locations.
      *
      * @param  int    $status
      * @param  array  $headers

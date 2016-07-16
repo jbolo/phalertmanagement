@@ -25,7 +25,7 @@ final class Source extends BaseTag implements Factory\StaticMethod
     /** @var string */
     protected $name = 'source';
 
-    /** @var int The starting line, relative to the structural element's location. */
+    /** @var int The starting line, relative to the structural element's locations. */
     private $startingLine = 1;
 
     /** @var int|null The number of lines, relative to the starting line. NULL means "to the end". */
@@ -69,7 +69,7 @@ final class Source extends BaseTag implements Factory\StaticMethod
      * Gets the starting line.
      *
      * @return int The starting line, relative to the structural element's
-     *     location.
+     *     locations.
      */
     public function getStartingLine()
     {

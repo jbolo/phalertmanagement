@@ -114,7 +114,7 @@ interface ResponseFactory
     public function redirectGuest($path, $status = 302, $headers = [], $secure = null);
 
     /**
-     * Create a new redirect response to the previously intended location.
+     * Create a new redirect response to the previously intended locations.
      *
      * @param  string  $default
      * @param  int  $status

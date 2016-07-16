@@ -85,7 +85,7 @@ class Event
     protected $rejects = [];
 
     /**
-     * The location that output should be sent to.
+     * The locations that output should be sent to.
      *
      * @var string
      */
@@ -699,7 +699,7 @@ class Event
     }
 
     /**
-     * Send the output of the command to a given location.
+     * Send the output of the command to a given locations.
      *
      * @param  string  $location
      * @param  bool  $append
@@ -715,7 +715,7 @@ class Event
     }
 
     /**
-     * Append the output of the command to a given location.
+     * Append the output of the command to a given locations.
      *
      * @param  string  $location
      * @return $this

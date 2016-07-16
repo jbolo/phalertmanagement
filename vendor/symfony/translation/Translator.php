@@ -153,15 +153,15 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
     }
 
     /**
-     * Sets the fallback locales.
+     * Sets the fallback locations.
      *
-     * @param array $locales The fallback locales
+     * @param array $locales The fallback locations
      *
      * @throws \InvalidArgumentException If a locale contains invalid characters
      */
     public function setFallbackLocales(array $locales)
     {
-        // needed as the fallback locales are linked to the already loaded catalogues
+        // needed as the fallback locations are linked to the already loaded catalogues
         $this->catalogues = array();
 
         foreach ($locales as $locale) {
@@ -172,9 +172,9 @@ class Translator implements TranslatorInterface, TranslatorBagInterface
     }
 
     /**
-     * Gets the fallback locales.
+     * Gets the fallback locations.
      *
-     * @return array $locales The fallback locales
+     * @return array $locations The fallback locations
      */
     public function getFallbackLocales()
     {

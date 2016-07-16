@@ -15,7 +15,7 @@ class MigrateMakeCommand extends BaseCommand
     protected $signature = 'make:migration {name : The name of the migration.}
         {--create= : The table to be created.}
         {--table= : The table to migrate.}
-        {--path= : The location where the migration file should be created.}';
+        {--path= : The locations where the migration file should be created.}';
 
     /**
      * The console command description.
@@ -101,7 +101,7 @@ class MigrateMakeCommand extends BaseCommand
     }
 
     /**
-     * Get migration path (either specified by '--path' option or default location).
+     * Get migration path (either specified by '--path' option or default locations).
      *
      * @return string
      */

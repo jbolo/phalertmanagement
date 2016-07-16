@@ -90,7 +90,7 @@ interface Filesystem
     public function delete($paths);
 
     /**
-     * Copy a file to a new location.
+     * Copy a file to a new locations.
      *
      * @param  string  $from
      * @param  string  $to
@@ -99,7 +99,7 @@ interface Filesystem
     public function copy($from, $to);
 
     /**
-     * Move a file to a new location.
+     * Move a file to a new locations.
      *
      * @param  string  $from
      * @param  string  $to

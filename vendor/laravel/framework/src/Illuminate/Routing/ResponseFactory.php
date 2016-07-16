@@ -206,7 +206,7 @@ class ResponseFactory implements FactoryContract
     }
 
     /**
-     * Create a new redirect response to the previously intended location.
+     * Create a new redirect response to the previously intended locations.
      *
      * @param  string  $default
      * @param  int  $status

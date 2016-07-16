@@ -166,7 +166,7 @@ class FilesystemAdapter implements FilesystemContract, CloudFilesystemContract
     }
 
     /**
-     * Copy a file to a new location.
+     * Copy a file to a new locations.
      *
      * @param  string  $from
      * @param  string  $to
@@ -178,7 +178,7 @@ class FilesystemAdapter implements FilesystemContract, CloudFilesystemContract
     }
 
     /**
-     * Move a file to a new location.
+     * Move a file to a new locations.
      *
      * @param  string  $from
      * @param  string  $to
