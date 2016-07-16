@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Municipalidad de Punta Hermosa</a>
+            <a class="navbar-brand" href="#"><img src="{{asset('images/logo.png')}}" width="150" height="40"/></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{route('admin.locales.index')}}">Locales <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('admin.eventos.index') }}">Eventos</a></li>
-                <li class="dropdown">
+                <!--<li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Action</a></li>
@@ -27,7 +27,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#">One more separated link</a></li>
                     </ul>
-                </li>
+                </li>-->
             </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
@@ -35,6 +35,7 @@
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <!--
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
@@ -47,7 +48,7 @@
                         <li><a href="#">Separated link</a></li>
                     </ul>
                 </li>
-            </ul>
+            </ul>-->
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

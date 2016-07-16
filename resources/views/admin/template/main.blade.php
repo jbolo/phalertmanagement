@@ -16,9 +16,8 @@
                 @yield('content')
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-footer">Todos los derechos Reservados</div>
-        </div>
+
+        @include('admin.template.partials.footer')
     </div>
     <script src="{{ asset('plugins/jquery/js/jquery.js') }}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>

@@ -1,10 +1,9 @@
 <?php
 
-Route::get('/', function () {
+
+Route::get('admin', function () {
     return view('welcome');
-
 });
-
 
 Route::group(['prefix'=>'admin'],function(){
     Route::resource('locales','LocalesController');
@@ -18,6 +17,7 @@ Route::group(['prefix'=>'admin'],function(){
         'uses' => 'EventosController@destroy',
         'as' => 'admin.eventos.destroy'
     ]);
+
 
 });
 
