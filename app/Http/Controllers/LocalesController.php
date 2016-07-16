@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 //use App\Http\Requests;
-use Request;
+//use App\User;
+//use Request;
 use App\Local;
+use Laracasts\Flash\Flash;
 
 class LocalesController extends Controller
 {
@@ -41,9 +43,10 @@ class LocalesController extends Controller
     public function store(Request $request)
     {
         //
-        $local = new Local($request::all());
+        $local = new Local($request->all());
         $local->save();
-        dd('Ubicacion creada.');
+        flash('Se ha registrado ' . $local->descripcion . ' de forma exitosa.','info');
+        return redirect()->route('admin.locales.index');
     }
 
     /**
@@ -65,7 +68,8 @@ class LocalesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $local=Local::find($id);
+        return view('admin.locales.edit')->with('local',$local);
     }
 
     /**
@@ -77,7 +81,14 @@ class LocalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $local = Local::find($id);
+        $local->descripcion = $request->input('descripcion');
+        $local->direccion = $request->input('direccion');
+
+        $local->save();
+
+        flash('El local ' . $local->descripcion . 'ha sido actualizado de forma exitosa.','info');
+        return redirect()->route('admin.locales.index');
     }
 
     /**
@@ -90,7 +101,8 @@ class LocalesController extends Controller
     {
         $local= Local::find($id);
         $local->delete();
-        Flash::danger('El local '+ $local->id +' ha sido borrado de forma exitosa.');
+        //flash('El local '+ $local->id +' ha sido borrado de forma exitosa.','info');
+        flash('El local ' . $local->descripcion . 'ha sido borrado de forma exitosa.','info');
         return redirect()->route('admin.locales.index');
     }
 }

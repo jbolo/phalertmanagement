@@ -1,6 +1,6 @@
 @extends('admin.template.main')
 
-@section('title','Crear Usuario')
+@section('title','Crear Local')
 
 @section('content')
     {!! Form::open(['route'=> 'admin.locales.store','method'=> 'POST']) !!}
@@ -13,6 +13,7 @@
         {!! Form::label('direccion','Direccion') !!}
         {!! Form::text('direccion',null, ['class'=> 'form-control','required']) !!}
     </div>
+    <hr>
     <div class=form-group">
         {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
     </div>

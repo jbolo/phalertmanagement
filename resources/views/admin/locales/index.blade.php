@@ -17,8 +17,9 @@
                     <td>{{ $local->descripcion }}</td>
                     <td>{{ $local->direccion }}</td>
                     <td>
-                        <a href="" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
-                        <a href="{{ route('admin.locales.destroy',$local->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
+                        <a href="{{ route('admin.locales.edit',$local->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
+                        <a href="{{ route('admin.locales.destroy',$local->id) }}" onclick="return confirm('Seguro que deseas eliminarlo')"
+                           class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a>
                     </td>
                 </tr>
             @endforeach
