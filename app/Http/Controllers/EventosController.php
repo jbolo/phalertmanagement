@@ -69,6 +69,13 @@ class EventosController extends Controller
         //
     }
 
+    public function listarEventos()
+    {
+        //
+        $eventos=Evento::all();
+
+        return $eventos;
+    }
     /**
      * Show the form for editing the specified resource.
      *

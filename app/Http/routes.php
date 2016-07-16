@@ -5,6 +5,7 @@ Route::get('/', function () {
 
 });
 
+
 Route::group(['prefix'=>'admin'],function(){
     Route::resource('locales','LocalesController');
     Route::resource('eventos','EventosController');
@@ -17,4 +18,10 @@ Route::group(['prefix'=>'admin'],function(){
         'uses' => 'EventosController@destroy',
         'as' => 'admin.eventos.destroy'
     ]);
+
+});
+
+Route::group(['prefix'=>'publico'],function(){
+    Route::resource('eventos', 'EventosController', array('only' => array('index')));
+    Route::get('eventos', 'EventosController@listarEventos');
 });
