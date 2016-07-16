@@ -84,6 +84,7 @@ class LocalesController extends Controller
         $local = Local::find($id);
         $local->descripcion = $request->input('descripcion');
         $local->direccion = $request->input('direccion');
+        $local->posicion_gps = $request->input('posicion_gps');
 
         $local->save();
 

@@ -8,6 +8,7 @@
             <th>ID</th>
             <th>Descripcion</th>
             <th>Direccion</th>
+            <th>GPS</th>
             <th>Accion</th>
         </head>
         <tbody>
@@ -16,6 +17,7 @@
                     <td>{{ $local->id }}</td>
                     <td>{{ $local->descripcion }}</td>
                     <td>{{ $local->direccion }}</td>
+                    <td>{{ $local->posicion_gps }}</td>
                     <td>
                         <a href="{{ route('admin.locales.edit',$local->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
                         <a href="{{ route('admin.locales.destroy',$local->id) }}" onclick="return confirm('Seguro que deseas eliminarlo')"
