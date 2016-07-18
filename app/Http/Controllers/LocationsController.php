@@ -20,7 +20,6 @@ class LocationsController extends Controller
     public function index()
     {
         $locations = Location::orderBy('id','ASC')->paginate(5);
-
         return view('admin.locations.index')->with('locations',$locations);
     }
 

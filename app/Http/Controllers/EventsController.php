@@ -21,7 +21,6 @@ class EventsController extends Controller
     public function index()
     {
         $events = Event::orderBy('name','ASC')->paginate(5);
-
         return view('admin.events.index')->with('events',$events);
     }
 

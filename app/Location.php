@@ -11,11 +11,11 @@ class Location extends Model
 
     public $timestamps = false;
 
-    protected $fillable = array('name', 'address', 'latitude','longitude');
+    //protected $fillable = array('name', 'address', 'latitude','longitude');
 
     public function events()
     {
-        return $this->hasMany('Event', 'location_id');
+        return $this->hasMany('App\Location');
     }
 
 }

@@ -11,11 +11,11 @@ class Event extends Model
 
     public $timestamps = false;
 
-    protected $fillable = array('name', 'description', 'date_event');
+    //protected $fillable = array('name', 'description', 'date_event');
 
 
-    public function eventLocation()
+    public function location()
     {
-        return $this->belongsTo('Location', 'location_id');
+        return $this->belongsTo('App\Location','location_id','id');
     }
 }

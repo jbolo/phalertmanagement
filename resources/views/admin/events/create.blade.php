@@ -31,7 +31,8 @@
                 widgetPositioning: {
                     horizontal: 'left',
                     vertical: 'bottom'
-                }
+                },
+                format : 'YYYY/MM/DD HH:mm:00'
             });
         });
     </script>

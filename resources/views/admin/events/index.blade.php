@@ -19,7 +19,7 @@
                     <td>{{ $event->name }}</td>
                     <td>{{ $event->description }}</td>
                     <td>{{ $event->date_event }}</td>
-                    <td>{{ $event->location_id }}</td>
+                    <td>{{ $event->location->name }}</td>
                     <td>
                         <a href="{{ route('admin.events.edit',$event->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>
                         <a href="{{ route('admin.events.destroy',$event->id) }}" onclick="return confirm('Seguro que deseas eliminarlo')"
