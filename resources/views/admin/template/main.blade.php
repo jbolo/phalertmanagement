@@ -5,6 +5,11 @@
     <title>@yield('title','Default') | Panel de Administracion</title>
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/datetimepicker/css/bootstrap-datetimepicker.css') }}">
+    <script src="{{ asset('plugins/jquery/js/jquery.js') }}"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('plugins/moment/js/moment.js') }}"></script>
+    <script src="{{ asset('plugins/datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +24,6 @@
 
         @include('admin.template.partials.footer')
     </div>
-    <script src="{{ asset('plugins/jquery/js/jquery.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.js') }}"></script>
+
 </body>
 </html>

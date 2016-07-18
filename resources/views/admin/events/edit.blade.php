@@ -13,7 +13,7 @@
         {!! Form::label('description','Description') !!}
         {!! Form::text('description',$event->description, ['class'=> 'form-control','required']) !!}
     </div>
-    <div class=form-group">
+    <div class=form-group" style="position: relative">
         {!! Form::label('date_event','Date Event') !!}
         {!! Form::text('date_event',$event->date_event, ['class'=> 'form-control','required']) !!}
     </div>
@@ -25,6 +25,17 @@
     <div class=form-group">
         {!! Form::submit('Update',['class'=>'btn btn-primary']) !!}
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#date_event').datetimepicker({
+                widgetPositioning: {
+                    horizontal: 'left',
+                    vertical: 'bottom'
+                }
+            });
+        });
+    </script>
     {!! Form::close() !!}
+
 @endsection
 
