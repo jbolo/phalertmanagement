@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 //use App\Http\Requests;
 //use App\User;
 //use Request;
-use App\Neighbor;
+use App\Suggestion;
 use Laracasts\Flash\Flash;
 
-class NeighborsController extends Controller
+class SuggestionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class NeighborsController extends Controller
      */
     public function index()
     {
-        $neighbors = Neighbor::orderBy('id','ASC')->paginate(5);
+        $suggestions = Suggestion::orderBy('id','ASC')->paginate(5);
 
-        return view('admin.neighbors.index')->with('neighbors',$neighbors);
+        return view('admin.suggestions.index')->with('suggestions',$suggestions);
     }
 }

@@ -11,6 +11,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('locations','LocationsController');
     Route::resource('events','EventsController');
     Route::resource('neighbors','NeighborsController');
+    Route::resource('suggestions','SuggestionsController');
 
 
     Route::get('locations/{id}/destroy',[
