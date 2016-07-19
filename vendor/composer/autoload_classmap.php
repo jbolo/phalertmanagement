@@ -627,7 +627,7 @@ return array(
     'Illuminate\\Contracts\\Auth\\Authenticatable' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/Authenticatable.php',
     'Illuminate\\Contracts\\Auth\\CanResetPassword' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/CanResetPassword.php',
     'Illuminate\\Contracts\\Auth\\Factory' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/Factory.php',
-    'Illuminate\\Contracts\\Auth\\Guard' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/Guard.php',
+    'Illuminate\\Contracts\\Auth\\Guard' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/Police.php',
     'Illuminate\\Contracts\\Auth\\PasswordBroker' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/PasswordBroker.php',
     'Illuminate\\Contracts\\Auth\\PasswordBrokerFactory' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/PasswordBrokerFactory.php',
     'Illuminate\\Contracts\\Auth\\Registrar' => $vendorDir . '/laravel/framework/src/Illuminate/Contracts/Auth/Registrar.php',

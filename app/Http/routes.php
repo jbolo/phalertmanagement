@@ -12,6 +12,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('events','EventsController');
     Route::resource('neighbors','NeighborsController');
     Route::resource('suggestions','SuggestionsController');
+    Route::resource('polices','PolicesController');
+    Route::resource('reports','ReportsController');
 
 
     Route::get('locations/{id}/destroy',[
@@ -22,8 +24,10 @@ Route::group(['prefix'=>'admin'],function(){
         'uses' => 'EventsController@destroy',
         'as' => 'admin.events.destroy'
     ]);
-
-
+    Route::get('polices/{id}/destroy',[
+        'uses' => 'PolicesController@destroy',
+        'as' => 'admin.polices.destroy'
+    ]);
 });
 
 Route::group(['prefix'=>'api'],function(){

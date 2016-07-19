@@ -11,8 +11,13 @@ class Neighbor extends Model
 
     public $timestamps = false;
 
-    public function events()
+    public function suggestions()
     {
-        return $this->hasMany('App\Suggestion');
+        return $this->hasMany('App\Neighbor');
+    }
+
+    public function reports()
+    {
+        return $this->hasMany('App\Neighbor');
     }
 }

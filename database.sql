@@ -20,7 +20,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phmobile`.`guards`
+-- Table `phmobile`.`polices`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `phmobile`.`guards` (
   `id` INT NOT NULL AUTO_INCREMENT,
