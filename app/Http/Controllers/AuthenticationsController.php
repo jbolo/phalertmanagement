@@ -13,8 +13,10 @@ use Illuminate\Http\Request;
 //use App\Http\Requests;
 //use App\User;
 //use Request;
+use Mail;
 use App\Neighbor;
 use Laracasts\Flash\Flash;
+use DB;
 
 
 class AuthenticationsController extends Controller
@@ -24,7 +26,7 @@ class AuthenticationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function validateToken(Request $request)
+    /*public function validateToken(Request $request)
     {
         if ( Neighbor::where('token',$request->input('token')->exists()) )
         {
@@ -77,5 +79,53 @@ class AuthenticationsController extends Controller
 
         return redirect('admin');
 
+    }*/
+
+    public function singup(Request $request)
+    {
+        $destiny=$request->input('email');
+
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        $pass = array(); //remember to declare $pass as an array
+        $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+        for ($i = 0; $i < 8; $i++) {
+            $n = rand(0, $alphaLength);
+            $pass[] = $alphabet[$n];
+        }
+
+
+        $content='Su contraseña de activacion es'.implode($pass);
+
+        Mail::send('emails.send', ['title' => 'Confirmacion - Punta Hermosa Mobile', 'content' => $content], function ($message) use ($destiny)
+        {
+
+            $message->from('test@gmail.com', 'Test');
+
+            $message->to($destiny);
+
+        });
+
+        $neighbor = new Neighbor();
+        $neighbor->email = $destiny;
+        $neighbor->token = implode($pass);
+
+        $neighbor->save();
+
+        return response()->json(['message' => 'Request completed']);
+
+    }
+
+    public function singin(Request $request)
+    {
+        $email=$request->input('email');
+        $passwd=$request->input('passwd');
+
+        $neighbor=DB::select('select 1 from neighbors n where n.email=? and n.tocket=?',[$email,$passwd]);
+
+        if(empty($neighbor)){
+            return response()->json(['message' => 'ERROR : usuario o contraseña invalidos']);
+        }else{
+            return response()->json(['message' => 'OK : usuario valido']);
+        }
     }
 }

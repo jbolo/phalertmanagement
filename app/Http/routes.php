@@ -40,8 +40,8 @@ Route::group(['prefix'=>'api'],function(){
 
     Route::post('suggestions', 'SuggestionsController@createSuggestion');
 
-    Route::resource('authetications', 'Controller', array('only' => array('index')));
-    Route::get('authetications', 'AutheticationsController@validateToken');
+    Route::post('registrations', 'AuthenticationsController@singup');
+    Route::post('authentications', 'AuthenticationsController@singin');
 
 });
 
