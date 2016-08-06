@@ -23,4 +23,18 @@ class SuggestionsController extends Controller
 
         return view('admin.suggestions.index')->with('suggestions',$suggestions);
     }
+
+    // API REST
+    public function createSuggestion(Request $request)
+    {
+        $suggestion = new Suggestion();
+        $suggestion->date_suggestion = date("Y-m-d H:i:s");
+        $suggestion->description = $request->input('description');
+        $suggestion->neighbor_id = $request->input('neighbor_id');
+
+        $suggestion->save();
+
+        $suggestion=Suggestion::find($suggestion->id);
+        return $suggestion;
+    }
 }

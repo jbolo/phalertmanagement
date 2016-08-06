@@ -31,8 +31,18 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 Route::group(['prefix'=>'api'],function(){
-    Route::resource('events', 'EventsController', array('only' => array('index')));
-    Route::get('events', 'EventsController@listEvents');
+    //Route::resource('events', 'EventsController', array('only' => array('index')));
+    Route::get('events/{id}', 'EventsController@listEvents');
+    //Route::get('events/{id}', 'EventsController@showEvent');
+    Route::post('events', 'EventsController@suscribeEvent');
+
+    Route::post('reports', 'ReportsController@createReport');
+
+    Route::post('suggestions', 'SuggestionsController@createSuggestion');
+
+    Route::resource('authetications', 'Controller', array('only' => array('index')));
+    Route::get('authetications', 'AutheticationsController@validateToken');
+
 });
 
 Route::get('/', function () {

@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 //use Request;
 use App\Event;
 use App\Location;
+use App\Participant;
+use DB;
 use Laracasts\Flash\Flash;
 
 class EventsController extends Controller
@@ -66,14 +68,6 @@ class EventsController extends Controller
     {
         //
     }
-
-    public function listEvents()
-    {
-        //
-        $events=Event::all();
-
-        return $events;
-    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -123,4 +117,34 @@ class EventsController extends Controller
         flash('Event ' . $event->name . ' removed successfull.','info');
         return redirect()->route('admin.events.index');
     }
+
+    // API REST
+    public function listEvents($id)
+    {
+        //
+        //$events=Event::all();
+
+        $events=DB::select('select e.*,(select 1 from participants p where p.neighbor_id=? and p.event_id=e.id) as suscribed from events e',[$id]);
+        return $events;
+    }
+
+    public function showEvent($id)
+    {
+        $events=Event::find($id);
+
+        return $events;
+    }
+
+    public function suscribeEvent(Request $request)
+    {
+        $participant = new Participant();
+
+        $participant->neighbor_id=$request->input('neighbor_id');
+        $participant->event_id=$request->input('event_id');
+
+        $participant->save();
+
+        return $participant;
+    }
+
 }

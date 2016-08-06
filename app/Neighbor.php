@@ -11,6 +11,8 @@ class Neighbor extends Model
 
     public $timestamps = false;
 
+    protected $fillable = array('first_name', 'last_name', 'address','email','phone_number','token');
+
     public function suggestions()
     {
         return $this->hasMany('App\Neighbor');
