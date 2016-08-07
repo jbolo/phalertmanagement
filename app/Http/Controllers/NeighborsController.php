@@ -29,8 +29,8 @@ class NeighborsController extends Controller
         $neighbors = Neighbor::find($id);
         $neighbors->first_name = $request->input('first_name');
         $neighbors->last_name = $request->input('last_name');
-        $neighbors->address = $request->input('last_name');
-        $neighbors->phone_number = $request->input('last_name');
+        $neighbors->address = $request->input('address');
+        $neighbors->phone_number = $request->input('phone_number');
 
         $neighbors->save();
 
