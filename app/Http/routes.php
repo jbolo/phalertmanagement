@@ -34,7 +34,7 @@ Route::group(['prefix'=>'api'],function(){
     //Route::resource('events', 'EventsController', array('only' => array('index')));
     Route::get('events/{id}', 'EventsController@listEvents');
     //Route::get('events/{id}', 'EventsController@showEvent');
-    Route::post('events', 'EventsController@suscribeEvent');
+    Route::post('participants', 'EventsController@suscribeEvent');
 
     Route::post('reports', 'ReportsController@createReport');
 
@@ -43,6 +43,8 @@ Route::group(['prefix'=>'api'],function(){
     Route::post('registrations', 'AuthenticationsController@singup');
     Route::post('authentications', 'AuthenticationsController@singin');
 
+    Route::update('neighbors', 'NeighborsController@updateNeighbor')
+;
 });
 
 Route::get('/', function () {
