@@ -60,8 +60,7 @@ class ReportsController extends Controller
 
         $report->save();
 
-        $report=Report::find($report->id);
-        return $report;
+        return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
     }
 
 }

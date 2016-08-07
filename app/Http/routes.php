@@ -43,7 +43,7 @@ Route::group(['prefix'=>'api'],function(){
     Route::post('registrations', 'AuthenticationsController@singup');
     Route::post('authentications', 'AuthenticationsController@singin');
 
-    //Route::update('neighbors', 'NeighborsController@updateNeighbor')
+    Route::put('neighbors', 'NeighborsController@updateNeighbor')
 ;
 });
 

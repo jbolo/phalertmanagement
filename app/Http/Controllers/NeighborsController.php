@@ -23,4 +23,17 @@ class NeighborsController extends Controller
 
         return view('admin.neighbors.index')->with('neighbors',$neighbors);
     }
+    // API
+    public function updateNeighbor(Request $request, $id)
+    {
+        $neighbors = Neighbor::find($id);
+        $neighbors->first_name = $request->input('first_name');
+        $neighbors->last_name = $request->input('last_name');
+        $neighbors->address = $request->input('last_name');
+        $neighbors->phone_number = $request->input('last_name');
+
+        $neighbors->save();
+
+        return response()->json(['message' => 'Actualizado correctamente.','result' => 'true']);
+    }
 }

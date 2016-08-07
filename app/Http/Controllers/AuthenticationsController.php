@@ -143,7 +143,7 @@ class AuthenticationsController extends Controller
             $neighbor->token = $token;
             $neighbor->save();
 
-            return response()->json(['message' => 'Usuario valido', 'result' => 'true']);
+            return response()->json([ 'token' => $token ,'message' => 'Usuario valido', 'result' => 'true']);
         }
     }
 }

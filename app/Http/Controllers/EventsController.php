@@ -144,7 +144,7 @@ class EventsController extends Controller
 
         $participant->save();
 
-        return $participant;
+        return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
     }
 
 }

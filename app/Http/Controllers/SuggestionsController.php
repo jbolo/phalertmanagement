@@ -34,7 +34,6 @@ class SuggestionsController extends Controller
 
         $suggestion->save();
 
-        $suggestion=Suggestion::find($suggestion->id);
-        return $suggestion;
+        return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
     }
 }
