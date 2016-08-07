@@ -50,10 +50,10 @@ class ReportsController extends Controller
     public function createReport(Request $request)
     {
         $report = new Report();
-        $report->description = $request->input('description');
+        //$report->description = $request->input('description');
         $report->type = $request->input('type');
         $report->date_report = date("Y-m-d H:i:s");
-        $report->address = $request->input('address');
+        //$report->address = $request->input('address');
         $report->longitude = $request->input('longitude');
         $report->latitude = $request->input('latitude');
         $report->neighbor_id = $request->input('neighbor_id');

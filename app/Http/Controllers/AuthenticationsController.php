@@ -83,7 +83,16 @@ class AuthenticationsController extends Controller
 
     public function singup(Request $request)
     {
-        $destiny=$request->input('email');
+        $first_name=$request->input('first_name');
+        $last_name=$request->input('last_name');
+        $email=$request->input('email');
+
+        $exist=DB::select('select 1 from neighbors n where n.email=?',[$email]);
+
+        if(!empty($exist)){
+            return response()->json(['message' => 'Usuario ya se encuentra registrado.','result' => 'false']);
+        }
+
 
         $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $pass = array(); //remember to declare $pass as an array
@@ -96,36 +105,45 @@ class AuthenticationsController extends Controller
 
         $content='Su contraseña de activacion es'.implode($pass);
 
-        Mail::send('emails.send', ['title' => 'Confirmacion - Punta Hermosa Mobile', 'content' => $content], function ($message) use ($destiny)
+        Mail::send('emails.send', ['title' => 'Bienvenido', 'content' => $content], function ($message) use ($email)
         {
 
-            $message->from('test@gmail.com', 'Test');
+            $message->subject('Punta Hermosa Mobile - Confirmacion de contraseña');
+            $message->from('puntahermmosamobile@gmail.com', 'Punta Hermosa Mobile');
 
-            $message->to($destiny);
+            $message->to($email);
 
         });
 
         $neighbor = new Neighbor();
-        $neighbor->email = $destiny;
-        $neighbor->token = implode($pass);
+        $neighbor->first_name = $first_name;
+        $neighbor->last_name = $last_name;
+        $neighbor->email = $email;
+        $neighbor->password = md5(implode($pass));
 
         $neighbor->save();
 
-        return response()->json(['message' => 'Request completed']);
+        return response()->json(['message' => 'Usuario registrado exitosamente.','result' => 'true']);
 
     }
 
     public function singin(Request $request)
     {
         $email=$request->input('email');
-        $passwd=$request->input('passwd');
+        $password=md5($request->input('password'));
 
-        $neighbor=DB::select('select 1 from neighbors n where n.email=? and n.tocket=?',[$email,$passwd]);
+        $neighbor=DB::select('select 1 from neighbors n where n.email=? and n.password=?',[$email,$password]);
 
         if(empty($neighbor)){
-            return response()->json(['message' => 'ERROR : usuario o contraseña invalidos']);
+            return response()->json(['message' => 'Usuario o contraseña invalidos', 'result' => 'false']);
         }else{
-            return response()->json(['message' => 'OK : usuario valido']);
+
+            $token=uniqid();
+            $neighbor = new Neighbor();
+            $neighbor->token = $token;
+            $neighbor->save();
+
+            return response()->json(['message' => 'Usuario valido', 'result' => 'true']);
         }
     }
 }

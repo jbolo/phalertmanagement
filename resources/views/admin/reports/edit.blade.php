@@ -7,7 +7,7 @@
 
     <div class=form-group">
         {!! Form::label('description','Description') !!}
-        {!! Form::text('description', $report->description , ['class'=> 'form-control','disabled']) !!}
+        {!! Form::text('description', $report->description , ['class'=> 'form-control']) !!}
     </div>
     <div class=form-group">
         {!! Form::label('type','Type') !!}
@@ -19,7 +19,7 @@
     </div>
     <div class=form-group">
         {!! Form::label('address','Address') !!}
-        {!! Form::text('address',$report->address, ['class'=> 'form-control','disabled']) !!}
+        {!! Form::text('address',$report->address, ['class'=> 'form-control']) !!}
     </div>
     <div class=form-group">
         {!! Form::label('longitude','Longitude') !!}

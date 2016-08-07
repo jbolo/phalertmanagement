@@ -11,7 +11,7 @@ class Neighbor extends Model
 
     public $timestamps = false;
 
-    protected $fillable = array('first_name', 'last_name', 'address','email','phone_number','tocket');
+    protected $fillable = array('first_name', 'last_name', 'address','email','phone_number','token','password');
 
     public function suggestions()
     {
