@@ -51,14 +51,16 @@ class Filesystem
     {
         $contents = '';
 
-        $handle = fopen($path, 'r');
+        $handle = fopen($path, 'rb');
 
         if ($handle) {
             try {
                 if (flock($handle, LOCK_SH)) {
-                    while (! feof($handle)) {
-                        $contents .= fread($handle, 1048576);
-                    }
+                    clearstatcache(true, $path);
+
+                    $contents = fread($handle, $this->size($path) ?: 1);
+
+                    flock($handle, LOCK_UN);
                 }
             } finally {
                 fclose($handle);
@@ -163,7 +165,7 @@ class Filesystem
     }
 
     /**
-     * Move a file to a new locations.
+     * Move a file to a new location.
      *
      * @param  string  $path
      * @param  string  $target
@@ -175,7 +177,7 @@ class Filesystem
     }
 
     /**
-     * Copy a file to a new locations.
+     * Copy a file to a new location.
      *
      * @param  string  $path
      * @param  string  $target
@@ -389,7 +391,30 @@ class Filesystem
     }
 
     /**
-     * Copy a directory from one locations to another.
+     * Move a directory.
+     *
+     * @param  string  $from
+     * @param  string  $to
+     * @param  bool  $overwrite
+     * @return bool
+     */
+    public function moveDirectory($from, $to, $overwrite = false)
+    {
+        if ($overwrite && $this->isDirectory($to)) {
+            $this->deleteDirectory($to);
+
+            $this->copyDirectory($from, $to);
+
+            $this->deleteDirectory($from);
+
+            return true;
+        }
+
+        return @rename($from, $to) === true;
+    }
+
+    /**
+     * Copy a directory from one location to another.
      *
      * @param  string  $directory
      * @param  string  $destination
@@ -428,7 +453,7 @@ class Filesystem
             }
 
             // If the current items is just a regular file, we will just copy this to the new
-            // locations and keep looping. If for some reason the copy fails we'll bail out
+            // location and keep looping. If for some reason the copy fails we'll bail out
             // and return false, so the developer is aware that the copy process failed.
             else {
                 if (! $this->copy($item->getPathname(), $target)) {

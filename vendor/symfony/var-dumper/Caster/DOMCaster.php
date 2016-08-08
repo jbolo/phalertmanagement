@@ -224,7 +224,7 @@ class DOMCaster
             'type' => $dom->type,
             'relatedException' => $dom->relatedException,
             'related_data' => $dom->related_data,
-            'locations' => $dom->location,
+            'location' => $dom->location,
         );
 
         return $a;

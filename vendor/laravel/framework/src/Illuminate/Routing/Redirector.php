@@ -44,7 +44,7 @@ class Redirector
     }
 
     /**
-     * Create a new redirect response to the previous locations.
+     * Create a new redirect response to the previous location.
      *
      * @param  int    $status
      * @param  array  $headers
@@ -86,7 +86,7 @@ class Redirector
     }
 
     /**
-     * Create a new redirect response to the previously intended locations.
+     * Create a new redirect response to the previously intended location.
      *
      * @param  string  $default
      * @param  int     $status

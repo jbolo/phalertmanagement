@@ -781,7 +781,7 @@ class Factory implements FactoryContract
     }
 
     /**
-     * Add a locations to the array of view locations.
+     * Add a location to the array of view locations.
      *
      * @param  string  $location
      * @return void

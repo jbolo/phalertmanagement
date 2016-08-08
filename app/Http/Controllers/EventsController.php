@@ -124,7 +124,7 @@ class EventsController extends Controller
         //
         //$events=Event::all();
 
-        $events=DB::select('select e.*,(select 1 from participants p where p.neighbor_id=? and p.event_id=e.id) as suscribed from events e',[$id]);
+        $events=DB::select('select e.*,(select count(*) from participants p where p.neighbor_id=? and p.event_id=e.id) as suscribed from events e',[$id]);
         return $events;
     }
 

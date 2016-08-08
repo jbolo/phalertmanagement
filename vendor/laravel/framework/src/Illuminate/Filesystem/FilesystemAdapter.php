@@ -166,7 +166,7 @@ class FilesystemAdapter implements FilesystemContract, CloudFilesystemContract
     }
 
     /**
-     * Copy a file to a new locations.
+     * Copy a file to a new location.
      *
      * @param  string  $from
      * @param  string  $to
@@ -178,7 +178,7 @@ class FilesystemAdapter implements FilesystemContract, CloudFilesystemContract
     }
 
     /**
-     * Move a file to a new locations.
+     * Move a file to a new location.
      *
      * @param  string  $from
      * @param  string  $to
@@ -238,6 +238,8 @@ class FilesystemAdapter implements FilesystemContract, CloudFilesystemContract
             return $adapter->getClient()->getObjectUrl($adapter->getBucket(), $path);
         } elseif ($adapter instanceof LocalAdapter) {
             return '/storage/'.$path;
+        } elseif (method_exists($adapter, 'getUrl')) {
+            return $adapter->getUrl($path);
         } else {
             throw new RuntimeException('This driver does not support retrieving URLs.');
         }

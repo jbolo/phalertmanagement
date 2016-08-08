@@ -98,7 +98,7 @@ class Translator extends NamespacedItemResolver implements TranslatorInterface
         list($namespace, $group, $item) = $this->parseKey($key);
 
         // Here we will get the locale that should be used for the language line. If one
-        // was not passed, we will use the default locations which was given to us when
+        // was not passed, we will use the default locales which was given to us when
         // the translator was instantiated. Then, we can load the lines and return.
         $locales = $fallback ? $this->parseLocale($locale) : [$locale ?: $this->locale];
 
@@ -158,8 +158,8 @@ class Translator extends NamespacedItemResolver implements TranslatorInterface
 
         foreach ($replace as $key => $value) {
             $line = str_replace(
-                [':'.Str::upper($key), ':'.Str::ucfirst($key), ':'.$key],
-                [Str::upper($value), Str::ucfirst($value), $value],
+                [':'.$key, ':'.Str::upper($key), ':'.Str::ucfirst($key)],
+                [$value, Str::upper($value), Str::ucfirst($value)],
                 $line
             );
         }
@@ -296,7 +296,7 @@ class Translator extends NamespacedItemResolver implements TranslatorInterface
     }
 
     /**
-     * Get the array of locations to be checked.
+     * Get the array of locales to be checked.
      *
      * @param  string|null  $locale
      * @return array

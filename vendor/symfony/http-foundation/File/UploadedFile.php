@@ -204,7 +204,7 @@ class UploadedFile extends File
     }
 
     /**
-     * Moves the file to a new locations.
+     * Moves the file to a new location.
      *
      * @param string $directory The destination folder
      * @param string $name      The new file name

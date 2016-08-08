@@ -70,6 +70,10 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
         array (
             'Illuminate\\' => 11,
         ),
+        'G' => 
+        array (
+            'GeneaLabs\\Phpgmaps\\' => 19,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -194,6 +198,10 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'GeneaLabs\\Phpgmaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/genealabs/phpgmaps/src/GeneaLabs/Phpgmaps',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
@@ -280,12 +288,19 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
     public static $classMap = array (
         'App\\Console\\Commands\\Inspire' => __DIR__ . '/../..' . '/app/Console/Commands/Inspire.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Event' => __DIR__ . '/../..' . '/app/Event.php',
         'App\\Events\\Event' => __DIR__ . '/../..' . '/app/Events/Event.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/AuthController.php',
         'App\\Http\\Controllers\\Auth\\PasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/PasswordController.php',
+        'App\\Http\\Controllers\\AuthenticationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthenticationsController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\LocalesController' => __DIR__ . '/../..',
+        'App\\Http\\Controllers\\EventsController' => __DIR__ . '/../..' . '/app/Http/Controllers/EventsController.php',
+        'App\\Http\\Controllers\\LocationsController' => __DIR__ . '/../..' . '/app/Http/Controllers/LocationsController.php',
+        'App\\Http\\Controllers\\NeighborsController' => __DIR__ . '/../..' . '/app/Http/Controllers/NeighborsController.php',
+        'App\\Http\\Controllers\\PolicesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PolicesController.php',
+        'App\\Http\\Controllers\\ReportsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportsController.php',
+        'App\\Http\\Controllers\\SuggestionsController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuggestionsController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -293,11 +308,16 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Request' => __DIR__ . '/../..' . '/app/Http/Requests/Request.php',
         'App\\Jobs\\Job' => __DIR__ . '/../..' . '/app/Jobs/Job.php',
-        'App\\Local' => __DIR__ . '/../..',
+        'App\\Location' => __DIR__ . '/../..' . '/app/Location.php',
+        'App\\Neighbor' => __DIR__ . '/../..' . '/app/Neighbor.php',
+        'App\\Participant' => __DIR__ . '/../..' . '/app/Participant.php',
+        'App\\Police' => __DIR__ . '/../..' . '/app/Police.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Report' => __DIR__ . '/../..' . '/app/Report.php',
+        'App\\Suggestion' => __DIR__ . '/../..' . '/app/Suggestion.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -746,6 +766,9 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'GeneaLabs\\Phpgmaps\\Facades\\PhpgmapsFacade' => __DIR__ . '/..' . '/genealabs/phpgmaps/src/GeneaLabs/Phpgmaps/Facades/PhpgmapsFacade.php',
+        'GeneaLabs\\Phpgmaps\\Phpgmaps' => __DIR__ . '/..' . '/genealabs/phpgmaps/src/GeneaLabs/Phpgmaps/Phpgmaps.php',
+        'GeneaLabs\\Phpgmaps\\PhpgmapsServiceProvider' => __DIR__ . '/..' . '/genealabs/phpgmaps/src/GeneaLabs/Phpgmaps/PhpgmapsServiceProvider.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -1415,6 +1438,8 @@ class ComposerStaticInit3fb87a26f56a052f3e735785f57f3673
         'League\\Flysystem\\PluginInterface' => __DIR__ . '/..' . '/league/flysystem/src/PluginInterface.php',
         'League\\Flysystem\\Plugin\\AbstractPlugin' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/AbstractPlugin.php',
         'League\\Flysystem\\Plugin\\EmptyDir' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/EmptyDir.php',
+        'League\\Flysystem\\Plugin\\ForcedCopy' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/ForcedCopy.php',
+        'League\\Flysystem\\Plugin\\ForcedRename' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/ForcedRename.php',
         'League\\Flysystem\\Plugin\\GetWithMetadata' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/GetWithMetadata.php',
         'League\\Flysystem\\Plugin\\ListFiles' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/ListFiles.php',
         'League\\Flysystem\\Plugin\\ListPaths' => __DIR__ . '/..' . '/league/flysystem/src/Plugin/ListPaths.php',
