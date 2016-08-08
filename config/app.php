@@ -160,7 +160,6 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        GeneaLabs\Phpgmaps\PhpgmapsServiceProvider::class,
 
     ],
 
@@ -211,7 +210,6 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Flash'=> Laracasts\Flash\Flash::class,
-        'Gmaps' => GeneaLabs\Phpgmaps\Facades\PhpgmapsFacade::class
     ],
 
 ];

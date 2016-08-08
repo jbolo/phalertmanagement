@@ -13,7 +13,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('neighbors','NeighborsController');
     Route::resource('suggestions','SuggestionsController');
     Route::resource('polices','PolicesController');
+    Route::get('reports/mapreport','ReportsController@mapreport');
     Route::resource('reports','ReportsController');
+
 
 
     Route::get('locations/{id}/destroy',[

@@ -11,6 +11,7 @@ use App\Report;
 use App\Police;
 use Laracasts\Flash\Flash;
 
+
 class ReportsController extends Controller
 {
     /**
@@ -45,6 +46,12 @@ class ReportsController extends Controller
         return redirect()->route('admin.reports.index');
     }
 
+    public function mapreport(Request $request)
+    {
+        $latitude=$request->input('latitude');
+        $longitude=$request->input('longitude');
+        return view('admin.reports.gmap')->with([ 'latitude' => $latitude , 'longitude' => $longitude]);
+    }
 
     // API REST
     public function createReport(Request $request)
