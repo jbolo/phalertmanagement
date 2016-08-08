@@ -28,7 +28,7 @@
                     <td><a href="#" onclick="window.open('/phalertmanagement/admin/reports/mapreport?latitude={{ $report->latitude }}&longitude={{ $report->longitude }}  ','popup','width=630,height=480'); return false;">Ver</a></td>
                     <td>{{ $report->neighbor->first_name." ".$report->neighbor->last_name }}</td>
                     @if(isset($report->police))
-                        <td>{{ $report->police->first_name." ".$report->police->last_name }}<a href="{{ route('admin.reports.edit',$report->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
+                        <td><a href="{{ route('admin.reports.edit',$report->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a>{{ $report->police->first_name." ".$report->police->last_name }}</td>
                     @else
                         <td><a href="{{ route('admin.reports.edit',$report->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></td>
                     @endif
