@@ -137,14 +137,35 @@ class EventsController extends Controller
 
     public function suscribeEvent(Request $request)
     {
-        $participant = new Participant();
+        $action=$request->input('action');
 
-        $participant->neighbor_id=$request->input('neighbor_id');
-        $participant->event_id=$request->input('event_id');
+        $participant=Participant::where('neighbor_id','=',$request->input('neighbor_id'))
+                                ->where('event_id','=',$request->input('event_id'))->first();
 
-        $participant->save();
+        if(isset($participant->neighbor_id) and ($action="suscribe")){
+            return response()->json(['message' => 'Ya se encuentra suscrito.','result' => 'false']);
+        }
 
-        return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
+        if(!isset($participant->neighbor_id) and ($action="unsuscribe")){
+            return response()->json(['message' => 'Ya se encuentra desuscrito.','result' => 'false']);
+        }
+
+        if($action="suscribe"){
+
+            $participant=new Participant();
+            $participant->neighbor_id=$request->input('neighbor_id');
+            $participant->event_id=$request->input('event_id');
+            $participant->save();
+
+            return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
+        }
+        if($action="unsuscribe"){
+
+            Participant::where('neighbor_id','=',$request->input('neighbor_id'))
+                       ->where('event_id','=',$request->input('event_id'))->delete();
+            return response()->json(['message' => 'Desregistrado correctamente.','result' => 'true']);
+        }
+
     }
 
 }
