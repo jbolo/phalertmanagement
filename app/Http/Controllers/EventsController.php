@@ -142,28 +142,28 @@ class EventsController extends Controller
         $participant=Participant::where('neighbor_id','=',$request->input('neighbor_id'))
                                 ->where('event_id','=',$request->input('event_id'))->first();
 
-        if(isset($participant->neighbor_id) and ($action="suscribe")){
+        if(isset($participant->neighbor_id) and ($action=="suscribe")){
             return response()->json(['message' => 'Ya se encuentra suscrito.','result' => 'false']);
         }
 
-        if(!isset($participant->neighbor_id) and ($action="unsuscribe")){
+        if(!isset($participant->neighbor_id) and ($action=="unsuscribe")){
             return response()->json(['message' => 'Ya se encuentra desuscrito.','result' => 'false']);
         }
 
-        if($action="suscribe"){
+        if($action=="suscribe"){
 
             $participant=new Participant();
             $participant->neighbor_id=$request->input('neighbor_id');
             $participant->event_id=$request->input('event_id');
             $participant->save();
 
-            return response()->json(['message' => 'Registrado correctamente.','result' => 'true']);
+            return response()->json(['message' => 'Suscrito correctamente.','result' => 'true']);
         }
-        if($action="unsuscribe"){
+        if($action=="unsuscribe"){
 
             Participant::where('neighbor_id','=',$request->input('neighbor_id'))
                        ->where('event_id','=',$request->input('event_id'))->delete();
-            return response()->json(['message' => 'Desregistrado correctamente.','result' => 'true']);
+            return response()->json(['message' => 'Desuscrito correctamente.','result' => 'true']);
         }
 
     }
