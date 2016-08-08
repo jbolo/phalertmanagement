@@ -132,18 +132,17 @@ class AuthenticationsController extends Controller
         $email=$request->input('email');
         $password=$request->input('password');
 
-        $neighbor=DB::select("select 1 from neighbors n where n.email='?' and n.password='?'",[$email,$password]);
+        $neighbor=Neighbor::where('email','=',$email)
+                          ->where('password','=',$password)->first();
 
-        if(empty($neighbor)){
+        if(!isset($neighbor->id)){
             return response()->json(['message' => 'Usuario o contraseña inválidos.', 'result' => 'false']);
         }else{
-
             $token=uniqid();
-            $neighbor = new Neighbor();
             $neighbor->token = $token;
             $neighbor->save();
 
-            return response()->json([ 'token' => $token ,'message' => 'Usuario válido.', 'result' => 'true']);
+            return response()->json([ 'id'=>$neighbor->id,'token' => $token ,'message' => 'Usuario válido.', 'result' => 'true']);
         }
     }
 }
