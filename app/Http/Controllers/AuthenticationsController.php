@@ -103,7 +103,7 @@ class AuthenticationsController extends Controller
         }
 
 
-        $content='Su contraseña de activacion es'.implode($pass);
+        $content='Su contraseña de activacion es '.implode($pass);
 
         Mail::send('emails.send', ['title' => 'Bienvenido', 'content' => $content], function ($message) use ($email)
         {
@@ -119,7 +119,7 @@ class AuthenticationsController extends Controller
         $neighbor->first_name = $first_name;
         $neighbor->last_name = $last_name;
         $neighbor->email = $email;
-        $neighbor->password = md5(implode($pass));
+        $neighbor->password = implode($pass);
 
         $neighbor->save();
 
@@ -130,12 +130,12 @@ class AuthenticationsController extends Controller
     public function singin(Request $request)
     {
         $email=$request->input('email');
-        $password=md5($request->input('password'));
+        $password=$request->input('password');
 
-        $neighbor=DB::select('select 1 from neighbors n where n.email=? and n.password=?',[$email,$password]);
+        $neighbor=DB::select("select 1 from neighbors n where n.email='?' and n.password='?'",[$email,$password]);
 
         if(empty($neighbor)){
-            return response()->json(['message' => 'Usuario o contraseña invalidos', 'result' => 'false']);
+            return response()->json(['message' => 'Usuario o contraseña inválidos.', 'result' => 'false']);
         }else{
 
             $token=uniqid();
@@ -143,7 +143,7 @@ class AuthenticationsController extends Controller
             $neighbor->token = $token;
             $neighbor->save();
 
-            return response()->json([ 'token' => $token ,'message' => 'Usuario valido', 'result' => 'true']);
+            return response()->json([ 'token' => $token ,'message' => 'Usuario válido.', 'result' => 'true']);
         }
     }
 }
